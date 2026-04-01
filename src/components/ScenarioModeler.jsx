@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { C, WARDS, ACS_TEMPLATES, FISCAL_YEARS } from '../data/constants';
-import { defaultScenario } from '../data/model';
+import { defaultScenario, calcDerived } from '../data/model';
 
 const fmt  = n => Number(n).toLocaleString('en-US');
 const fmtM = n => '$' + (n / 1_000_000).toFixed(1) + 'M';
@@ -285,7 +285,6 @@ export default function ScenarioModeler({ plan, setPlan, scenario, updateScenari
             </select>
           </div>
           {compareSc && (() => {
-            const { calcDerived } = require('../data/model');
             const cDer = calcDerived(compareSc);
             const rows = [
               ['Hard Beds (projected)',    fmt(derived.totalHard),    fmt(cDer.totalHard)],
