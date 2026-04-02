@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { ROLES, C } from '../data/constants';
 import { defaultScenario, exportPlanJSON, importPlanJSON } from '../data/model';
+import WorldClock from './WorldClock';
 
 export default function Nav({ plan, setPlan, role, setRole, tab, setTab, visibleTabs, saved, scenario }) {
   const importRef = useRef();
@@ -29,6 +30,9 @@ export default function Nav({ plan, setPlan, role, setRole, tab, setTab, visible
 
   return (
     <header>
+      {/* World clock + Julian date */}
+      <WorldClock />
+
       {/* Top bar */}
       <div style={{ ...hdr, padding: '10px 20px', display: 'flex', alignItems: 'center', gap: 16 }}>
         {/* Branding */}
